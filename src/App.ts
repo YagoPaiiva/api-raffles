@@ -13,7 +13,7 @@ class App {
     this.databaseSetup()
   }
 
-  public async databaseSetup() {
+  public async databaseSetup(): Promise<void> {
     await database.connection()
   }
 
