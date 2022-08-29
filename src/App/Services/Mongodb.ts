@@ -1,7 +1,11 @@
-import mongoose, { Connection, mongo } from "mongoose"
+import mongoose, { Connection } from "mongoose"
+
 
 export const connection = () => new Promise((resolve, reject) => {
-  mongoose.connect(process.env.URL_MONGODB || "mongodb://root:96521183zZ@192.168.1.79:27017/rifas")
+  mongoose.connect(process.env.URL_MONGODB as string)
+    .then(() => console.log("Database connected!"))
+    .catch(err => console.log('err'));
+
   const db: Connection = mongoose.connection
   db.on('error', error => {
     console.log('Error connecting to database.`')

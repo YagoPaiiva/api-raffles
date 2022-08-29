@@ -26,9 +26,7 @@ class App {
   public routes() {
     this.express.use(routes)
   }
-  public async close(): Promise<void> {
-    await database.close()
-  }
+
 }
 
 export default new App().express

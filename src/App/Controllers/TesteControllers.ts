@@ -4,17 +4,16 @@ import User, { UserType } from '../Models/User'
 export default new class Teste {
 
   public async index(request: Request, response: Response) {
-
+    const { name, email, password, age }: UserType = request.body()
     let newUser = new User()
-    newUser.name.firstName = 'Yago'
-    newUser.name.lastName = 'Paiva'
-    newUser.email = 'paiivayago@gmail.com'
-    newUser.password = '123456'
-    newUser.age = 27
-    let result = await newUser.save()
 
-    console.log('New User create', result)
+    newUser.name = { firstName: name.firstName, lastName: name.lastName }
+    newUser.email = email
+    newUser.password = password
+    newUser.age = age
 
+    const result = await newUser.save()
+    console.log(result)
 
     response.status(200).json({ pong: true })
   }
