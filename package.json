@@ -9,7 +9,7 @@
     "dev": "nodemon ./src/Server.ts",
     "build": "tsc",
     "docker": "docker-compose -f 'docker-compose.yml' up -d --build",
-    "test": "jest --watch --runInBand"
+    "test": "jest --watch --runInBand --setupFiles dotenv/config"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.34.0",
