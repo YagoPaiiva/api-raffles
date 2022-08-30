@@ -1,10 +1,9 @@
 import mongoose, { Connection } from "mongoose"
 
-
 export const connection = () => new Promise((resolve, reject) => {
-  mongoose.connect(process.env.URL_MONGODB as string)
+  mongoose.connect(process.env.URL_MONGODB as string || 'mongodb://paiva:96521183zZ@192.168.1.79:27017/rifas')
     .then(() => console.log("Database connected!"))
-    .catch(err => console.log('err'));
+    .catch(err => console.log(err));
 
   const db: Connection = mongoose.connection
   db.on('error', error => {

@@ -3,7 +3,7 @@ import cors from 'cors'
 import routes from './Routes'
 import * as database from './App/Services/Mongodb'
 
-class App {
+class SetupServer {
   public express: express.Application
 
   public constructor() {
@@ -29,4 +29,4 @@ class App {
 
 }
 
-export default new App().express
+export default new SetupServer().express
