@@ -10,11 +10,6 @@ class SetupServer {
     this.express = express()
     this.middlewares()
     this.routes()
-    this.databaseSetup()
-  }
-
-  public async databaseSetup(): Promise<void> {
-    await database.connection()
   }
 
   public middlewares() {
